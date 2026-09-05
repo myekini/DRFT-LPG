@@ -1,0 +1,3 @@
+import { WaitlistForm } from './WaitlistForm';
+import { HeroDemo } from './HeroDemo';
+export function HeroSection() { return <section className="hero page-width" aria-labelledby="hero-heading"><div className="hero-copy"><p className="eyebrow">Early access — join the waitlist</p><h1 id="hero-heading">AI edits.<br />You decide.</h1><p className="hero-body">Chat alongside your resume and job description.<br className="desktop-break" /> Watch targeted edits stream into the canvas.<br className="desktop-break" /> Your voice stays intact — every time.</p><WaitlistForm /><p className="trust-line">Open source · MIT license · Free tier available at launch</p></div><HeroDemo /></section>; }

@@ -1,0 +1,32 @@
+import { chromium } from '@playwright/test';
+import fs from 'node:fs/promises';
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const results = [];
+for (const [name, width, height] of [['desktop',1440,1000], ['mobile',390,844], ['tablet',768,1024]]) {
+ const page = await browser.newPage({ viewport: { width, height }, reducedMotion: 'reduce' });
+ const errors = []; page.on('pageerror', e => errors.push(e.message));
+ await page.goto('http://localhost:3000', { waitUntil: 'networkidle' });
+ await page.screenshot({ path: `.impeccable/review/${name}.png`, fullPage: true });
+ const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
+ const heroButtonBottom = await page.locator('.hero .primary-button').evaluate(e => e.getBoundingClientRect().bottom);
+ await page.locator('.hero input').fill('test@example.com');
+ await page.locator('.hero .primary-button').click();
+ await page.getByText('Signups are temporarily unavailable. Please try again later.').waitFor();
+ await page.locator('.ghost-button').click();
+ await page.waitForURL('**/#waitlist-cta');
+ results.push({ name, overflow, heroButtonBottom, viewportHeight: height, errors, formError: true, ctaNavigation: true });
+ await page.close();
+}
+const motion = await browser.newPage({viewport:{width:1440,height:1000}});
+await motion.goto('http://localhost:3000');
+await motion.locator('.hero-demo[data-phase="9"]').waitFor();
+await motion.locator('.proposal-actions button').first().click();
+await motion.locator('.hero-demo[data-phase="accepted"]').waitFor();
+await motion.getByRole('button',{name:'Replay editor preview'}).click();
+await motion.locator('.hero-demo[data-phase="9"]').waitFor();
+await motion.locator('.proposal-actions button').last().click();
+await motion.locator('.hero-demo[data-phase="reverted"]').waitFor();
+results.push({ demoAccept: true, demoRevert: true, replay: true });
+await fs.writeFile('.impeccable/review/results.json', JSON.stringify(results,null,2));
+console.log(JSON.stringify(results,null,2));
+await browser.close();

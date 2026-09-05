@@ -1,0 +1,138 @@
+/* ============================================================
+   DRFT — Tailwind v4 Theme
+   Drop this into your CSS entry file alongside @import "tailwindcss"
+   ============================================================ */
+
+@import "tailwindcss";
+
+@theme {
+
+  /* ── Colors ── */
+  --color-void:           #0A0A0A;
+  --color-base:           #111111;
+  --color-raised:         #161616;
+  --color-hairline:       #1E1E1E;
+  --color-hairline-hover: #2A2A2A;
+  --color-mint:           #00E5A0;
+  --color-mint-dim:       rgba(0, 229, 160, 0.08);
+  --color-text-1:         #F0F0F0;
+  --color-text-2:         rgba(240, 240, 240, 0.55);
+  --color-text-3:         rgba(240, 240, 240, 0.25);
+
+  /* ── Fonts ── */
+  --font-serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-sans:  'Geist', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono:  'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* ── Font Sizes ── */
+  --text-display:    64px;
+  --text-display-sm: 48px;
+  --text-heading:    40px;
+  --text-body-lg:    18px;
+  --text-body:       16px;
+  --text-body-sm:    14px;
+  --text-label:      14px;
+  --text-caption:    12px;
+  --text-mono:       12px;
+  --text-mono-sm:    11px;
+
+  /* ── Line Heights ── */
+  --leading-display:    1.0;
+  --leading-display-sm: 1.05;
+  --leading-heading:    1.1;
+  --leading-body-lg:    1.65;
+  --leading-body:       1.6;
+  --leading-body-sm:    1.5;
+  --leading-mono:       1.6;
+
+  /* ── Letter Spacing ── */
+  --tracking-display:  -0.02em;
+  --tracking-tight:    -0.01em;
+  --tracking-normal:    0;
+  --tracking-wide:      0.01em;
+
+  /* ── Spacing (4px base unit) ── */
+  --spacing-1:   4px;
+  --spacing-2:   8px;
+  --spacing-3:   12px;
+  --spacing-4:   16px;
+  --spacing-5:   20px;
+  --spacing-6:   24px;
+  --spacing-7:   28px;
+  --spacing-8:   32px;
+  --spacing-9:   36px;
+  --spacing-10:  40px;
+  --spacing-12:  48px;
+  --spacing-14:  56px;
+  --spacing-16:  64px;
+  --spacing-18:  72px;
+  --spacing-24:  96px;
+  --spacing-40:  160px;
+
+  /* ── Layout ── */
+  --max-w-content: 1100px;
+  --max-w-full:    1280px;
+
+  /* ── Border Radius ── */
+  --radius-pill:  9999px;
+  --radius-xl:    24px;
+  --radius-lg:    20px;
+  --radius-input: 6px;
+  --radius-sm:    4px;
+
+  /* ── Shadows ── */
+  --shadow-card:
+    rgba(255, 255, 255, 0.06) 0px 0px 0px 1px inset;
+  --shadow-elevated:
+    rgba(255, 255, 255, 0.08) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.5) 0px 8px 32px 0px;
+  --shadow-mint-glow:
+    0px 0px 20px rgba(0, 229, 160, 0.15);
+  --shadow-nav:
+    rgba(255, 255, 255, 0.04) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.3) 0px 2px 8px 0px;
+
+  /* ── Transitions ── */
+  --ease-base: 200ms ease;
+  --ease-slow: 300ms ease;
+  --ease-reveal: 400ms ease-out;
+
+}
+
+/* ── Base Layer ── */
+@layer base {
+  html {
+    background-color: var(--color-void);
+    color: var(--color-text-1);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Instrument Serif — load from Google Fonts */
+  /* Add to <head>: */
+  /* <link rel="preconnect" href="https://fonts.googleapis.com"> */
+  /* <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap" rel="stylesheet"> */
+
+  /* Geist + Geist Mono — load from Vercel */
+  /* npm install geist */
+  /* import { GeistSans, GeistMono } from 'geist/font' */
+
+  ::selection {
+    background-color: rgba(0, 229, 160, 0.2);
+    color: var(--color-text-1);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
