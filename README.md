@@ -2,7 +2,7 @@
 
 > The AI resume editor that keeps your voice. Marketing site and waitlist capture, built as a single-scroll, single-conversion-goal experience.
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/myekini/DRFT-LPG/actions/workflows/ci.yml/badge.svg)](https://github.com/myekini/DRFT-LPG/actions/workflows/ci.yml)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js&logoColor=white)
 ![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?logo=typescript&logoColor=white)
