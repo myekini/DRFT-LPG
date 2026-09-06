@@ -28,30 +28,3 @@ export function BrandMark({
     </svg>
   );
 }
-
-export function DraftingCrosshair({
-  x,
-  y,
-  label,
-  delay = '0s',
-}: {
-  x?: string;
-  y?: string;
-  label?: string;
-  delay?: string;
-}) {
-  return (
-    <div
-      className="drafting-crosshair"
-      style={{
-        left: x,
-        top: y,
-        animationDelay: delay,
-      }}
-      aria-hidden="true"
-    >
-      <span className="crosshair-icon">+</span>
-      {label && <span className="crosshair-label">{label}</span>}
-    </div>
-  );
-}

@@ -4,7 +4,6 @@ import { ProblemSection } from '@/components/ProblemSection';
 import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { DifferentiatorsSection } from '@/components/DifferentiatorsSection';
 import { OpenSourceSection } from '@/components/OpenSourceSection';
-import { ComingSoonRoadmap } from '@/components/ComingSoonRoadmap';
 import { WaitlistCTASection } from '@/components/WaitlistCTASection';
 import { Footer } from '@/components/Footer';
 
@@ -18,7 +17,6 @@ export default function Page() {
         <HowItWorksSection />
         <DifferentiatorsSection />
         <OpenSourceSection />
-        <ComingSoonRoadmap />
         <WaitlistCTASection />
       </main>
       <Footer />

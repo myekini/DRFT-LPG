@@ -4,9 +4,9 @@ export function IntersectionReveal({ children, delay = 0, className = '' }: { ch
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => { const el = ref.current; if (!el || !('IntersectionObserver' in window)) return; const media = window.matchMedia('(prefers-reduced-motion: reduce)'); if (media.matches) return;
     el.style.transition = `opacity 400ms ease-out ${delay}ms, transform 400ms ease-out ${delay}ms`; el.style.opacity = '0'; el.style.transform = 'translateY(12px)';
-    const show = () => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const show = () => { el.style.opacity = '1'; el.style.transform = 'none'; el.dataset.visible = 'true'; };
     const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { show(); observer.disconnect(); } }, { threshold: .2 }); observer.observe(el);
     const change = () => { if (media.matches) { show(); observer.disconnect(); } }; media.addEventListener('change', change);
     return () => { observer.disconnect(); media.removeEventListener('change', change); show(); };
-  }, [delay]); return <div ref={ref} className={className}>{children}</div>;
+  }, [delay]); return <div ref={ref} className={`intersection-reveal ${className}`.trim()}>{children}</div>;
 }
