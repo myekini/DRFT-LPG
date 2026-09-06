@@ -50,6 +50,7 @@ export async function saveWaitlistContact(email: string): Promise<SaveContactRes
 export async function sendWaitlistConfirmation(email: string): Promise<SendEmailResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.RESEND_FROM_EMAIL || 'DRFT <onboarding@resend.dev>';
+  const replyTo = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 
   const html = generateWaitlistEmailHtml({ email });
   const text = generateWaitlistEmailPlaintext({ email });
@@ -73,9 +74,11 @@ export async function sendWaitlistConfirmation(email: string): Promise<SendEmail
       body: JSON.stringify({
         from: fromEmail,
         to: [email],
-        subject: 'You’re on the DRFT early access list',
+        subject: 'You’re in. Welcome to DRFT',
         html,
         text,
+        ...(replyTo ? { reply_to: replyTo } : {}),
+        tags: [{ name: 'category', value: 'waitlist' }],
       }),
       signal: AbortSignal.timeout(8000),
     });

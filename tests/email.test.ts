@@ -3,18 +3,27 @@ import assert from 'node:assert/strict';
 import { generateWaitlistEmailHtml, generateWaitlistEmailPlaintext } from '../lib/waitlist-email';
 import { saveWaitlistContact, sendWaitlistConfirmation } from '../lib/resend';
 
-test('email template generator includes email, brand elements and key value props', () => {
+test('email template is concise, branded and includes the confirmed address', () => {
   const html = generateWaitlistEmailHtml({ email: 'builder@example.com' });
   assert.match(html, /builder@example\.com/);
-  assert.match(html, /Early access confirmed/);
-  assert.match(html, /AI edits, you decide/);
+  assert.match(html, /apple-icon\.png/);
+  assert.match(html, /AI edits\. You decide/);
   assert.match(html, /https:\/\/drft\.io/);
-  assert.match(html, /<!DOCTYPE html>/);
+  assert.match(html, /github\.com\/drft-open/);
+  assert.match(html, /You’re in\./);
+  assert.doesNotMatch(html, /What to expect/);
+  assert.match(html, /<!doctype html>/);
 
   const text = generateWaitlistEmailPlaintext({ email: 'builder@example.com' });
   assert.match(text, /builder@example\.com/);
-  assert.match(text, /DRFT: You’re on the early access list/);
+  assert.match(text, /You’re in\./);
   assert.match(text, /https:\/\/drft\.io/);
+});
+
+test('email template escapes the recipient address in HTML', () => {
+  const html = generateWaitlistEmailHtml({ email: 'name<script>@example.com' });
+  assert.doesNotMatch(html, /name<script>/);
+  assert.match(html, /name&lt;script&gt;@example\.com/);
 });
 
 test('sendWaitlistConfirmation falls back to clean simulation when no API key is set', async () => {

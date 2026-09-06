@@ -2,109 +2,72 @@ export interface WaitlistEmailData {
   email: string;
 }
 
+const siteUrl = 'https://drft.io';
+const githubUrl = 'https://github.com/drft-open';
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>"']/g, (character) => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;',
+  })[character] || character);
+}
+
 export function generateWaitlistEmailHtml({ email }: WaitlistEmailData): string {
-  return `<!DOCTYPE html>
+  const safeEmail = escapeHtml(email);
+  return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to DRFT Early Access</title>
-  <!--[if mso]>
-  <style type="text/css">
-    body, table, td {font-family: Arial, Helvetica, sans-serif !important;}
-  </style>
-  <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>You’re in</title>
 </head>
-<body style="margin: 0; padding: 40px 16px; background-color: #f7f7f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji'; color: #171816; -webkit-font-smoothing: antialiased;">
-  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="max-width: 560px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e6e1; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
-    <!-- Brand Header -->
+<body style="margin:0;background:#f4f5f1;color:#171816;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;">Your place on the DRFT early access list is confirmed.</div>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4f5f1;">
     <tr>
-      <td style="padding: 36px 40px 24px; border-bottom: 1px solid #f0f0ed;">
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+      <td align="center" style="padding:48px 16px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:#ffffff;border-radius:18px;box-shadow:0 18px 60px rgba(26,36,29,.08);">
           <tr>
-            <td>
-              <span style="font-size: 22px; font-weight: 700; letter-spacing: -0.04em; color: #111111; display: inline-flex; align-items: center;">
-                <span style="display: inline-block; width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;">
-                  <svg viewBox="0 0 192 192" width="18" height="18" style="display:block;">
-                    <rect width="192" height="192" rx="40" fill="#0A0A0A" />
-                    <rect x="91.4" y="52" width="9.2" height="88" rx="4.6" fill="#00E5A0" />
-                    <rect x="52" y="91.4" width="88" height="9.2" rx="4.6" fill="#00E5A0" />
-                  </svg>
-                </span>
-                drft
-              </span>
-            </td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-
-    <!-- Body Content -->
-    <tr>
-      <td style="padding: 32px 40px 24px;">
-        <h1 style="margin: 0 0 16px; font-size: 24px; font-weight: 650; line-height: 1.25; letter-spacing: -0.035em; color: #111111;">
-          You’re on the early access list.
-        </h1>
-        
-        <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #4b5563;">
-          Thanks for joining us early. We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
-        </p>
-
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 24px 0; background: #f7f7f5; border-radius: 8px; padding: 16px;">
-          <tr>
-            <td>
-              <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #111111; letter-spacing: -0.01em;">
-                Early access confirmed
-              </p>
-              <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #6b7280;">
-                Registered as: <strong style="color: #111111; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;">${email}</strong>
-                <br />You'll be among the first invited to test the preview.
-              </p>
-            </td>
-          </tr>
-        </table>
-
-        <h2 style="margin: 28px 0 12px; font-size: 15px; font-weight: 650; color: #111111; letter-spacing: -0.02em;">
-          What to expect when access opens:
-        </h2>
-
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="font-size: 14px; line-height: 1.6; color: #4b5563;">
-          <tr>
-            <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>AI edits, you decide.</strong> Review each suggestion and keep only what works for you.</td>
-          </tr>
-          <tr>
-            <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>Your full history.</strong> Keep your experience together and tailor a fresh version for each role.</td>
-          </tr>
-          <tr>
-            <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>Your data stays yours.</strong> We will never train on your resume without your permission.</td>
-          </tr>
-        </table>
-
-        <!-- CTA Button -->
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 32px 0 16px;">
-          <tr>
-            <td align="left">
-              <a href="https://drft.io" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #111111; color: #ffffff; text-decoration: none; padding: 12px 22px; font-size: 14px; font-weight: 550; border-radius: 7px; letter-spacing: -0.01em;">
-                Visit DRFT &rarr;
+            <td style="padding:34px 38px 0;">
+              <a href="${siteUrl}" style="display:inline-block;text-decoration:none;color:#171816;">
+                <table role="presentation" cellspacing="0" cellpadding="0"><tr>
+                  <td><img src="${siteUrl}/apple-icon.png" width="34" height="34" alt="" style="display:block;border:0;border-radius:8px;"></td>
+                  <td style="padding-left:10px;font-size:22px;font-weight:750;letter-spacing:-.8px;">drft</td>
+                </tr></table>
               </a>
             </td>
           </tr>
-        </table>
-      </td>
-    </tr>
+          <tr>
+            <td style="padding:52px 38px 38px;">
+              <div style="width:38px;height:5px;background:#00e5a0;border-radius:20px;margin-bottom:25px;"></div>
+              <h1 style="margin:0;font-size:42px;line-height:1.05;letter-spacing:-2px;font-weight:720;color:#171816;">You’re in.</h1>
+              <p style="margin:20px 0 0;max-width:430px;font-size:16px;line-height:1.65;color:#565b54;">Thanks for joining DRFT. We’ll let you know when your early access invite is ready.</p>
 
-    <!-- Footer -->
-    <tr>
-      <td style="padding: 20px 40px 32px; border-top: 1px solid #f0f0ed; background: #fafaf9;">
-        <p style="margin: 0 0 6px; font-size: 12px; color: #6b7280;">
-          DRFT. Write a stronger resume. Keep it yours.
-        </p>
-        <p style="margin: 0; font-size: 11px; color: #9ca3af; line-height: 1.4;">
-          You received this email because ${email} was entered into the early access waitlist at drft.app.
-        </p>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:32px 0;background:#f4f5f1;border-radius:12px;">
+                <tr>
+                  <td style="padding:17px 18px;font-size:13px;color:#6c7169;">Confirmed for</td>
+                  <td align="right" style="padding:17px 18px;font-size:13px;font-weight:650;color:#171816;">${safeEmail}</td>
+                </tr>
+              </table>
+
+              <p style="margin:0 0 28px;font-size:16px;line-height:1.65;color:#565b54;">Until then, keep the experience. Lose the generic wording.</p>
+              <a href="${siteUrl}" style="display:inline-block;padding:13px 21px;background:#171816;color:#ffffff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:650;">Visit DRFT&nbsp;&nbsp;→</a>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 38px 32px;background:#fafaf8;border-radius:0 0 18px 18px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0"><tr>
+                <td style="font-size:12px;color:#858a82;">AI edits. You decide.</td>
+                <td align="right" style="font-size:12px;white-space:nowrap;">
+                  <a href="${siteUrl}" style="color:#565b54;text-decoration:none;">Website</a>
+                  <span style="padding:0 8px;color:#c4c7c1;">·</span>
+                  <a href="${githubUrl}" style="color:#565b54;text-decoration:none;">GitHub</a>
+                </td>
+              </tr></table>
+              <p style="margin:14px 0 0;font-size:10px;line-height:1.5;color:#a0a49c;">You received this because ${safeEmail} joined the DRFT waitlist.</p>
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
@@ -113,23 +76,16 @@ export function generateWaitlistEmailHtml({ email }: WaitlistEmailData): string 
 }
 
 export function generateWaitlistEmailPlaintext({ email }: WaitlistEmailData): string {
-  return `DRFT: You’re on the early access list
+  return `You’re in.
 
-Thanks for joining the DRFT waitlist.
+Thanks for joining DRFT. We’ll let you know when your early access invite is ready.
 
-We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
+Confirmed for: ${email}
 
-Early access confirmed
-Registered email: ${email}
+Until then, keep the experience. Lose the generic wording.
 
-What to expect:
-+ AI edits, you decide: Review each suggestion and keep only what works for you.
-+ Your full history: Keep your experience together and tailor a fresh version for each role.
-+ Your data stays yours: We will never train on your resume without your permission.
+Visit DRFT: ${siteUrl}
+GitHub: ${githubUrl}
 
-Visit DRFT:
-https://drft.io
-
-DRFT
-You received this because you signed up at drft.app.`;
+AI edits. You decide.`;
 }
