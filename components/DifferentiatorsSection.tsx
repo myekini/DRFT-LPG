@@ -4,7 +4,7 @@ import { SiAnthropic, SiStripe } from 'react-icons/si';
 import { BrandMark } from './BrandLogo';
 export function DifferentiatorsSection() {
   return <section id="why-drft" className="section page-width features" aria-labelledby="features-heading">
-    <div className="section-title-row"><h2 id="features-heading" className="section-heading">Good edits.<br /><span className="serif-word">Great instincts.</span></h2><p>Everything you need to tell your story.<br />Nothing that gets in the way.</p></div>
+    <div className="section-title-row"><h2 id="features-heading" className="section-heading">Built around<br /><span className="serif-word">your experience.</span></h2><p>Keep your history in one place.<br />Make each version fit the role.</p></div>
     <div className="feature-grid">
       <article className="feature-panel memory-panel"><div className="feature-copy"><p className="feature-label">Resume memory</p><h3>Your resume lives here.<br />Not in your clipboard.</h3><p>Every role. Every bullet. Every bit of context. DRFT remembers your career, so you can pick up where you left off.</p></div>
         <div className="memory-visual"><div className="memory-file"><FileText size={24} strokeWidth={1.5} /><div><strong>Alex_Morgan_Resume.pdf</strong><span>Your experience, connected.</span></div><span className="file-check"><Check size={15} /></span></div><div className="memory-path"><span /><BrandMark /><span /></div><div className="memory-nodes"><div><Upload size={16} /><strong>First upload</strong><span>Embedded & ready</span></div><div><Clock3 size={16} /><strong>Next session</strong><span>Context in &lt; 50ms</span></div></div><p className="visual-footnote">No re-pasting. No re-explaining.</p></div>

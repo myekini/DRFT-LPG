@@ -11,7 +11,7 @@ export function Nav() {
   }, []);
   return <header className={`nav ${scrolled ? 'nav-scrolled' : ''}`}><nav className="nav-inner" aria-label="Main">
     <a href="#main" aria-label="DRFT home"><BrandLogo /></a>
-    <div className="nav-links"><a href="#how-it-works">How it works</a><a href="#why-drft">Why DRFT</a><a href="#open-source">Open source</a></div>
+    <div className="nav-links"><a href="#how-it-works">How it works</a><a href="#why-drft">Why DRFT</a><a href="#coming-soon">Coming soon</a></div>
     <div className="nav-actions"><ThemeToggle /><a className="ghost-button" href="#waitlist-cta">Join waitlist</a></div>
   </nav></header>;
 }

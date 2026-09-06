@@ -7,10 +7,10 @@ const serif = Instrument_Serif({ weight: '400', style: ['normal', 'italic'], sub
 const themeScript = `(function(){try{document.documentElement.dataset.theme=localStorage.getItem('drft-theme')==='dark'?'dark':'light'}catch(e){}})()`;
 export const metadata: Metadata = {
   metadataBase: new URL('https://drft.io'),
-  title: 'DRFT — AI edits. You decide.',
+  title: 'DRFT | AI edits. You decide.',
   description: 'A stronger resume. Still unmistakably you. Chat, refine, and approve every change with DRFT, the AI resume editor that keeps your voice.',
-  openGraph: { title: 'DRFT — AI edits. You decide.', description: 'The AI resume editor that keeps your voice. Open source.', url: 'https://drft.io', type: 'website', images: [{ url: '/brand/og-image.png', width: 1200, height: 630, alt: 'DRFT — AI edits. You decide.' }] },
-  twitter: { card: 'summary_large_image', title: 'DRFT — AI edits. You decide.', description: 'Chat alongside your resume. Watch edits stream live. Approve every change.', images: ['/brand/og-image.png'] },
+  openGraph: { title: 'DRFT | AI edits. You decide.', description: 'Build a stronger resume without losing your voice. Coming soon.', url: 'https://drft.io', type: 'website', images: [{ url: '/brand/og-image.png', width: 1200, height: 630, alt: 'DRFT resume editor' }] },
+  twitter: { card: 'summary_large_image', title: 'DRFT | AI edits. You decide.', description: 'Build a stronger resume without losing your voice.', images: ['/brand/og-image.png'] },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en" data-theme="light" suppressHydrationWarning className={`${GeistSans.variable} ${GeistMono.variable} ${serif.variable}`}>

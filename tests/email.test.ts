@@ -6,15 +6,15 @@ import { sendWaitlistConfirmation } from '../lib/resend';
 test('email template generator includes email, brand elements and key value props', () => {
   const html = generateWaitlistEmailHtml({ email: 'builder@example.com' });
   assert.match(html, /builder@example\.com/);
-  assert.match(html, /Early Access Wave #1/);
+  assert.match(html, /Early access, position 1200/);
   assert.match(html, /AI edits, you decide/);
-  assert.match(html, /github\.com\/drft-open/);
+  assert.match(html, /https:\/\/drft\.io/);
   assert.match(html, /<!DOCTYPE html>/);
 
   const text = generateWaitlistEmailPlaintext({ email: 'builder@example.com' });
   assert.match(text, /builder@example\.com/);
-  assert.match(text, /DRFT · You’re on the early access list/);
-  assert.match(text, /https:\/\/github\.com\/drft-open/);
+  assert.match(text, /DRFT: You’re on the early access list/);
+  assert.match(text, /https:\/\/drft\.io/);
 });
 
 test('sendWaitlistConfirmation falls back to clean simulation when no API key is set', async () => {

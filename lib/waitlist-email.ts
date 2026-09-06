@@ -54,7 +54,7 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
         </h1>
         
         <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #4b5563;">
-          Thanks for joining us early. We’re building DRFT because existing resume tools treat your career like generic filler. Either they write buzzword soup you’d never say, or they lock your data behind clumsy templates.
+          Thanks for joining us early. We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
         </p>
 
         <!-- Notion-style Callout Block -->
@@ -62,7 +62,7 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
           <tr>
             <td>
               <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #111111; letter-spacing: -0.01em;">
-                Early Access Wave #1 · Priority #${waitlistNumber}
+                Early access, position ${waitlistNumber}
               </p>
               <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #6b7280;">
                 Registered as: <strong style="color: #111111; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;">${email}</strong>
@@ -79,15 +79,15 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
         <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="font-size: 14px; line-height: 1.6; color: #4b5563;">
           <tr>
             <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>AI edits, you decide.</strong> Line-by-line diff approval. Accept, reject, or refine every word before anything touches your document.</td>
+            <td style="padding: 6px 0;"><strong>AI edits, you decide.</strong> Review each suggestion and keep only what works for you.</td>
           </tr>
           <tr>
             <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>Open core.</strong> The parsing engine, prompt pipelines, and local agent workflows are MIT-licensed. Inspect them, fork them, or self-host.</td>
+            <td style="padding: 6px 0;"><strong>Your full history.</strong> Keep your experience together and tailor a fresh version for each role.</td>
           </tr>
           <tr>
             <td style="padding: 6px 0; vertical-align: top; width: 24px; color: #086b49; font-weight: 700;">+</td>
-            <td style="padding: 6px 0;"><strong>Privacy first.</strong> Your resume is your confidential story. No training on your data without explicit opt-in.</td>
+            <td style="padding: 6px 0;"><strong>Your data stays yours.</strong> We will never train on your resume without your permission.</td>
           </tr>
         </table>
 
@@ -95,8 +95,8 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
         <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 32px 0 16px;">
           <tr>
             <td align="left">
-              <a href="https://github.com/drft-open" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #111111; color: #ffffff; text-decoration: none; padding: 12px 22px; font-size: 14px; font-weight: 550; border-radius: 7px; letter-spacing: -0.01em;">
-                Follow the Open-Source Release on GitHub &rarr;
+              <a href="https://drft.io" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #111111; color: #ffffff; text-decoration: none; padding: 12px 22px; font-size: 14px; font-weight: 550; border-radius: 7px; letter-spacing: -0.01em;">
+                Visit DRFT &rarr;
               </a>
             </td>
           </tr>
@@ -108,7 +108,7 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
     <tr>
       <td style="padding: 20px 40px 32px; border-top: 1px solid #f0f0ed; background: #fafaf9;">
         <p style="margin: 0 0 6px; font-size: 12px; color: #6b7280;">
-          DRFT · Open-Source Resume Intelligence · <a href="https://github.com/drft-open" style="color: #6b7280; text-decoration: underline;">GitHub</a>
+          DRFT. Write a stronger resume. Keep it yours.
         </p>
         <p style="margin: 0; font-size: 11px; color: #9ca3af; line-height: 1.4;">
           You received this email because ${email} was entered into the early access waitlist at drft.app.
@@ -121,24 +121,23 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
 }
 
 export function generateWaitlistEmailPlaintext({ email }: WaitlistEmailData): string {
-  return `DRFT · You’re on the early access list
+  return `DRFT: You’re on the early access list
 
 Thanks for joining the DRFT waitlist.
 
-We’re building DRFT because existing resume tools treat your career like generic filler. AI should propose, but you should always decide.
+We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
 
 Early Access Wave #1
 Registered email: ${email}
 
 What to expect:
-+ AI edits, you decide: Line-by-line diff approval. Accept, reject, or refine every word.
-+ Open core: The parsing engine and agent workflows are MIT-licensed.
-+ Privacy first: Your data remains yours.
++ AI edits, you decide: Review each suggestion and keep only what works for you.
++ Your full history: Keep your experience together and tailor a fresh version for each role.
++ Your data stays yours: We will never train on your resume without your permission.
 
-Follow our open-source release on GitHub:
-https://github.com/drft-open
+Visit DRFT:
+https://drft.io
 
---
-DRFT · Open-Source Resume Intelligence
+DRFT
 You received this because you signed up at drft.app.`;
 }

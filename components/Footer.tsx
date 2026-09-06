@@ -1,5 +1,19 @@
-import { ArrowUpRight } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
+
 export function Footer() {
-  return <footer className="footer page-width"><div className="footer-main"><div className="footer-brand"><a href="#main" aria-label="DRFT home"><BrandLogo large /></a><p>AI edits. You decide.</p></div><nav aria-label="Footer"><div><span>Discover</span><a href="#how-it-works">How it works</a><a href="#why-drft">Why DRFT</a><a href="#waitlist-cta">Join the waitlist</a></div><div><span>Elsewhere</span><a href="https://github.com/drft-open" target="_blank" rel="noopener noreferrer">GitHub <ArrowUpRight size={13} /></a><a href="https://drft.dev" target="_blank" rel="noopener noreferrer">drft.dev <ArrowUpRight size={13} /></a>{process.env.NEXT_PUBLIC_TWITTER_URL && <a href={process.env.NEXT_PUBLIC_TWITTER_URL} target="_blank" rel="noopener noreferrer">Twitter/X <ArrowUpRight size={13} /></a>}{process.env.NEXT_PUBLIC_CONTACT_EMAIL && <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}>Contact</a>}</div></nav></div><div className="footer-bottom"><span>Made for the story only you can tell.</span><span>Open source. Human first.</span></div></footer>;
+  return (
+    <footer className="footer page-width">
+      <div className="footer-main">
+        <a href="#main" aria-label="DRFT home"><BrandLogo large /></a>
+        <p>Write a stronger resume. Keep it yours.</p>
+        <nav aria-label="Footer">
+          <a href="#how-it-works">How it works</a>
+          <a href="#why-drft">Why DRFT</a>
+          <a href="#waitlist-cta">Join the waitlist</a>
+          {process.env.NEXT_PUBLIC_CONTACT_EMAIL && <a href={`mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL}`}>Contact</a>}
+        </nav>
+      </div>
+      <div className="footer-bottom"><span>© {new Date().getFullYear()} DRFT</span><span>Made for real careers and real people.</span></div>
+    </footer>
+  );
 }

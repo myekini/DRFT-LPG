@@ -48,7 +48,7 @@ export function HeroDemo() {
     <div className="hero-demo" ref={root} data-phase="accepted">
       <div className="demo-toolbar">
         <span className="demo-workspace"><BrandMark /> Alex’s workspace <ChevronDown size={13} /></span>
-        <span className="demo-file"><FileText size={14} /> Stripe — Senior Data Engineer</span><MoreHorizontal size={18} />
+        <span className="demo-file"><FileText size={14} /> Stripe, Senior Data Engineer</span><MoreHorizontal size={18} />
       </div>
       <div className="demo-panels">
         <aside className="demo-rail" aria-hidden="true"><span className="rail-active"><FileText size={18} /></span><MessageSquare size={18} /><GitBranch size={18} /><span className="rail-avatar">A</span></aside>
@@ -57,7 +57,7 @@ export function HeroDemo() {
           <div className="job-attachment"><FileText size={16} /><div><strong>Senior Data Engineer</strong><span>Stripe · Job description attached</span></div><Check size={14} /></div>
           <div className="user-bubble">Help me tailor my experience for this role. Keep it sounding like me.</div>
           <div className="ai-message"><BrandMark /><div><p>I’ve read the job description. Your experience is a strong fit. Let’s bring these forward:</p><ul><li>Real-time pipelines</li><li>Stakeholder alignment</li><li>ML feature engineering</li></ul></div></div>
-          <div className="user-bubble follow-up">Yes — don’t touch the Acme Corp role.</div>
+          <div className="user-bubble follow-up">Yes. Keep the Acme Corp role as it is.</div>
           <div className="ai-message editing"><BrandMark /><p>On it. A targeted edit to your Stripe experience. The rest stays yours.<span className="dots"><i /><i /><i /></span></p></div>
           <div className="chat-composer"><span>Ask DRFT to refine anything…</span><div><Paperclip size={15} /><span><ArrowUp size={15} /></span></div></div>
         </div>
@@ -66,7 +66,7 @@ export function HeroDemo() {
           <div className="resume-page">
             <div className="resume-person"><h3>Alex Morgan</h3><p>Data engineer. Systems thinker. Builder.</p><span>San Francisco, CA &nbsp; · &nbsp; alex@example.com</span></div>
             <div className="resume-label">EXPERIENCE</div>
-            <div className="resume-role"><p>Senior Data Engineer <span>Stripe</span></p><span>2021 — Present</span></div>
+            <div className="resume-role"><p>Senior Data Engineer <span>Stripe</span></p><span>2021 to present</span></div>
             <p className="resume-bullet">Built batch ETL serving 400M events daily across product and analytics teams.</p>
             <div className="edit-space">
               <div className="proposal">
@@ -79,7 +79,7 @@ export function HeroDemo() {
               <div className="accepted-edit"><p>{target}</p><span><Check size={12} /> Your edit, accepted.</span></div>
               <div className="reverted-edit"><p>Built data pipelines for product teams.</p><span><RotateCcw size={12} /> Original wording restored.</span></div>
             </div>
-            <div className="protected-role"><div className="resume-role"><p>Data Engineer <span>Acme Corp</span></p><span>2018 — 2021</span></div><p className="resume-bullet">Led a team of four to rebuild the analytics platform from the ground up.</p><span className="protected-label"><LockKeyhole size={11} /> Original wording preserved</span></div>
+            <div className="protected-role"><div className="resume-role"><p>Data Engineer <span>Acme Corp</span></p><span>2018 to 2021</span></div><p className="resume-bullet">Led a team of four to rebuild the analytics platform from the ground up.</p><span className="protected-label"><LockKeyhole size={11} /> Original wording preserved</span></div>
           </div>
         </div>
       </div>

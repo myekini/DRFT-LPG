@@ -1,16 +1,16 @@
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { BrandMark } from './BrandLogo';
 import { IntersectionReveal } from './IntersectionReveal';
 
 export function OpenSourceSection() {
   return (
-    <section id="open-source" className="section page-width open-source" aria-labelledby="open-heading">
-      <IntersectionReveal className="open-source-art" delay={80}><span>[</span><BrandMark /><span>]</span></IntersectionReveal>
-      <div className="open-source-copy">
-        <h2 className="section-heading" id="open-heading">Yours to inspect.<br /><span className="serif-word">Yours to build on.</span></h2>
-        <p>DRFT’s parsing, agent, and voice systems will be MIT licensed. Self-host them, inspect them, or help shape what comes next.</p>
-        <p>The hosted app adds cloud sync and managed AI, with no API key required.</p>
-        <a href="https://github.com/drft-open" target="_blank" rel="noopener noreferrer"><Github size={17} /> Follow the open-source release <ArrowUpRight size={14} /><span className="sr-only">(opens in a new tab)</span></a>
+    <section id="coming-soon" className="section page-width coming-soon" aria-labelledby="coming-soon-heading">
+      <IntersectionReveal className="coming-soon-art" delay={80}><BrandMark /><span>Soon</span></IntersectionReveal>
+      <div className="coming-soon-copy">
+        <p className="eyebrow">Coming soon</p>
+        <h2 className="section-heading" id="coming-soon-heading">A better way to<br /><span className="serif-word">work on your resume.</span></h2>
+        <p>We’re building DRFT with a small group of early users. Join the waitlist to try it first and help shape what ships.</p>
+        <a href="#waitlist-cta">Get early access <ArrowRight size={15} /></a>
       </div>
     </section>
   );
