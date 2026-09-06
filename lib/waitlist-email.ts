@@ -1,10 +1,8 @@
 export interface WaitlistEmailData {
   email: string;
-  waitlistNumber?: number;
-  referralCode?: string;
 }
 
-export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: WaitlistEmailData): string {
+export function generateWaitlistEmailHtml({ email }: WaitlistEmailData): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,11 +34,6 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
                 drft
               </span>
             </td>
-            <td align="right">
-              <span style="display: inline-block; padding: 4px 10px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; background: #f0fdf4; color: #086b49; border: 1px solid #bbf7d0; border-radius: 9999px;">
-                Waitlist Confirmed
-              </span>
-            </td>
           </tr>
         </table>
       </td>
@@ -57,12 +50,11 @@ export function generateWaitlistEmailHtml({ email, waitlistNumber = 1200 }: Wait
           Thanks for joining us early. We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
         </p>
 
-        <!-- Notion-style Callout Block -->
-        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 24px 0; background: #fafaf8; border-left: 3px solid #00e5a0; border-radius: 4px; padding: 16px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="margin: 24px 0; background: #f7f7f5; border-radius: 8px; padding: 16px;">
           <tr>
             <td>
               <p style="margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #111111; letter-spacing: -0.01em;">
-                Early access, position ${waitlistNumber}
+                Early access confirmed
               </p>
               <p style="margin: 0; font-size: 13px; line-height: 1.5; color: #6b7280;">
                 Registered as: <strong style="color: #111111; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;">${email}</strong>
@@ -127,7 +119,7 @@ Thanks for joining the DRFT waitlist.
 
 We’re building DRFT to help you improve your resume without losing the details and voice that make it yours.
 
-Early Access Wave #1
+Early access confirmed
 Registered email: ${email}
 
 What to expect:

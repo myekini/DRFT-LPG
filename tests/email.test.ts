@@ -1,12 +1,12 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { generateWaitlistEmailHtml, generateWaitlistEmailPlaintext } from '../lib/waitlist-email';
-import { sendWaitlistConfirmation } from '../lib/resend';
+import { saveWaitlistContact, sendWaitlistConfirmation } from '../lib/resend';
 
 test('email template generator includes email, brand elements and key value props', () => {
   const html = generateWaitlistEmailHtml({ email: 'builder@example.com' });
   assert.match(html, /builder@example\.com/);
-  assert.match(html, /Early access, position 1200/);
+  assert.match(html, /Early access confirmed/);
   assert.match(html, /AI edits, you decide/);
   assert.match(html, /https:\/\/drft\.io/);
   assert.match(html, /<!DOCTYPE html>/);
@@ -29,5 +29,38 @@ test('sendWaitlistConfirmation falls back to clean simulation when no API key is
     if (originalKey) {
       process.env.RESEND_API_KEY = originalKey;
     }
+  }
+});
+
+test('Resend contact storage detects existing contacts and creates new ones', async () => {
+  const originalKey = process.env.RESEND_API_KEY;
+  const originalFetch = globalThis.fetch;
+  process.env.RESEND_API_KEY = 're_test';
+  let mode: 'existing' | 'new' = 'existing';
+  let requests = 0;
+
+  globalThis.fetch = async (_input, init) => {
+    requests += 1;
+    if (!init?.method) return new Response(mode === 'existing' ? '{}' : '{}', { status: mode === 'existing' ? 200 : 404 });
+    return new Response('{"id":"contact_123"}', { status: 201, headers: { 'Content-Type': 'application/json' } });
+  };
+
+  try {
+    const existing = await saveWaitlistContact('member@example.com');
+    assert.equal(existing.success, true);
+    assert.equal(existing.duplicate, true);
+    assert.equal(requests, 1);
+
+    mode = 'new';
+    requests = 0;
+    const created = await saveWaitlistContact('new@example.com');
+    assert.equal(created.success, true);
+    assert.equal(created.duplicate, false);
+    assert.equal(created.id, 'contact_123');
+    assert.equal(requests, 2);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalKey) process.env.RESEND_API_KEY = originalKey;
+    else delete process.env.RESEND_API_KEY;
   }
 });

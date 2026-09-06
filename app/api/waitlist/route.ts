@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { submitWaitlist } from '@/lib/supabase';
-import { sendWaitlistConfirmation } from '@/lib/resend';
+import { saveWaitlistContact, sendWaitlistConfirmation } from '@/lib/resend';
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,24 +14,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Attempt Supabase insert
     const dbResult = await submitWaitlist(email);
+    let stored = dbResult.success;
+    let isDuplicate = dbResult.duplicate;
 
-    // If Supabase is unconfigured (dev environment), simulate success
-    let isDuplicate = false;
-    if (!dbResult.success && dbResult.duplicate) {
-      isDuplicate = true;
-    } else if (!dbResult.success && dbResult.error?.includes('temporarily unavailable')) {
-      // Supabase keys not set yet in local environment - allow local preview to function
-      console.warn('[Waitlist API] Supabase keys not detected. Running in mock storage mode.');
-    } else if (!dbResult.success) {
+    if (!stored && !isDuplicate && dbResult.error?.includes('temporarily unavailable')) {
+      const contactResult = await saveWaitlistContact(email);
+      stored = contactResult.success;
+      isDuplicate = contactResult.duplicate;
+    }
+
+    if (!stored && !isDuplicate) {
       return NextResponse.json(
-        { success: false, error: dbResult.error || 'Unable to record signup.' },
-        { status: 500 }
+        { success: false, error: 'We couldn’t add you right now. Please try again shortly.' },
+        { status: 503 }
       );
     }
 
-    // Dispatch Notion-style confirmation email via Resend
     let emailResult: { sent: boolean; simulated?: boolean } = { sent: false, simulated: false };
     if (!isDuplicate) {
       emailResult = await sendWaitlistConfirmation(email);
@@ -43,8 +42,10 @@ export async function POST(request: NextRequest) {
       emailSent: emailResult.sent,
       simulated: emailResult.simulated ?? false,
       message: isDuplicate
-        ? 'You’re already on the list! We’ll be in touch.'
-        : 'You’re on the list! Check your inbox for your welcome note.',
+        ? 'You’re already on the list. You’re all set.'
+        : emailResult.sent && !emailResult.simulated
+          ? 'You’re on the list. Check your inbox for a confirmation.'
+          : 'You’re on the list. We’ll be in touch.',
     });
   } catch (err) {
     console.error('[Waitlist API Error]', err);

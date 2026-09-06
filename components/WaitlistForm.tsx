@@ -1,7 +1,6 @@
 'use client';
 import { useId, useRef, useState, type FormEvent } from 'react';
 import { ArrowRight, Check, LoaderCircle, Mail } from 'lucide-react';
-import { submitWaitlist } from '@/lib/supabase';
 
 export function WaitlistForm() {
   const id = useId();
@@ -19,7 +18,6 @@ export function WaitlistForm() {
     setMessage('');
 
     try {
-      // First attempt via the new server API route which triggers Resend welcome email
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -30,48 +28,15 @@ export function WaitlistForm() {
         const data = await res.json();
         setDuplicate(data.duplicate ?? false);
         setStatus('success');
-        setMessage(
-          data.duplicate
-            ? 'Already on the list! You’re all set.'
-            : 'You’re on the list! Check your inbox for your welcome note.'
-        );
+        setMessage(data.message || (data.duplicate ? 'You’re already on the list.' : 'You’re on the list.'));
       } else {
         const errorData = await res.json().catch(() => ({}));
-        // Fallback to direct client-side supabase if available
-        const fallback = await submitWaitlist(email);
-        if (fallback.success || fallback.duplicate) {
-          setDuplicate(fallback.duplicate);
-          setStatus('success');
-          setMessage(
-            fallback.duplicate
-              ? 'Already on the list. You’re all set.'
-              : 'You’re on the list. We’ll be in touch soon.'
-          );
-        } else {
-          setStatus('error');
-          setMessage(errorData.error || fallback.error || 'Something went wrong. Please try again.');
-        }
+        setStatus('error');
+        setMessage(errorData.error || 'Something went wrong. Please try again.');
       }
     } catch {
-      // Offline or network error: fallback to client-side
-      try {
-        const fallback = await submitWaitlist(email);
-        if (fallback.success || fallback.duplicate) {
-          setDuplicate(fallback.duplicate);
-          setStatus('success');
-          setMessage(
-            fallback.duplicate
-              ? 'Already on the list. You’re all set.'
-              : 'You’re on the list. We’ll be in touch.'
-          );
-        } else {
-          setStatus('error');
-          setMessage(fallback.error || 'Could not connect. Check your connection and try again.');
-        }
-      } catch {
-        setStatus('error');
-        setMessage('Could not connect. Check your connection and try again.');
-      }
+      setStatus('error');
+      setMessage('Could not connect. Check your connection and try again.');
     } finally {
       busy.current = false;
     }
