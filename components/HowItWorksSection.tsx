@@ -1,2 +1,11 @@
-const steps = [['Upload your resume', 'We extract your content, calibrate your voice, and build your resume memory — once.'], ['Chat about the role', 'Paste the job description. Ask DRFT to strengthen your experience. It reads the JD first.'], ['Accept what fits', 'Edits stream into the canvas. You see every change. You approve every change. Export a clean PDF.']];
-export function HowItWorksSection() { return <section className="section page-width how" aria-labelledby="how-heading"><h2 id="how-heading" className="text-center text-body-sm text-text-3 mb-12">How DRFT works</h2><ol className="steps">{steps.map(([title, description], i) => <li key={title}><div className="step-number"><span>0{i + 1}</span></div><h3 className="text-body font-medium mb-2">{title}</h3><p className="text-body-sm text-text-2 leading-body max-w-[260px]">{description}</p></li>)}</ol></section>; }
+const steps = [
+  ['Bring your resume', 'Upload once. DRFT learns your experience and the way you write.'],
+  ['Share the role', 'Add the job description and ask for help. DRFT reads the role before suggesting a word.'],
+  ['Choose every edit', 'Changes appear in your canvas. Accept what fits, revert what doesn’t, then export a clean PDF.'],
+];
+export function HowItWorksSection() {
+  return <section id="how-it-works" className="section page-width how" aria-labelledby="how-heading">
+    <div className="section-title-row"><h2 id="how-heading" className="section-heading">From “that’ll do”<br />to <span className="serif-word">“that’s me.”</span></h2><p>One workspace. Three steps.<br />You stay in control throughout.</p></div>
+    <ol className="steps">{steps.map(([title, description], i) => <li key={title}><div className="step-number"><span>0{i + 1}</span></div><h3>{title}</h3><p>{description}</p></li>)}</ol>
+  </section>;
+}

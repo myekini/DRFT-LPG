@@ -1,3 +1,12 @@
 import { IntersectionReveal } from './IntersectionReveal';
-const statements = [["The AI rewrote everything.", 'Your phrasing, your tone, your specific project details — gone.'], ["You couldn’t see what changed.", 'Accept all or start over. Those were your only options.'], ['Next session, you re-pasted everything.', 'Full resume. Full context. Same tokens burned. Every time.']];
-export function ProblemSection() { return <section className="section page-width problem" aria-labelledby="problem-heading"><h2 id="problem-heading" className="section-heading text-center">You’ve used AI to improve your resume.<br />It didn’t sound like you.</h2><div className="pain-list">{statements.map(([title, body], i) => <IntersectionReveal key={title} delay={i * 120} className="pain"><p className="text-text-1">{title}</p><p className="text-text-2">{body}</p></IntersectionReveal>)}</div></section>; }
+const statements = [
+  ['It rewrote everything.', 'Your phrasing, your tone, your specific details — gone.'],
+  ['You couldn’t see what changed.', 'Accept it all or start over. No real choice in between.'],
+  ['Then it forgot you.', 'Next session: paste the resume, explain the context, start again.'],
+];
+export function ProblemSection() {
+  return <section className="problem section page-width" aria-labelledby="problem-heading">
+    <div><h2 id="problem-heading" className="section-heading">Your resume.<br />Not an AI’s<br /><span className="serif-word">best guess.</span></h2><p className="problem-intro">Most AI tools make your resume sound polished.<br />They also make it sound like everyone else.</p></div>
+    <div className="pain-list">{statements.map(([title, body], i) => <IntersectionReveal key={title} delay={i * 120} className="pain"><span className="pain-dash" aria-hidden="true">—</span><div><h3>{title}</h3><p>{body}</p></div></IntersectionReveal>)}</div>
+  </section>;
+}

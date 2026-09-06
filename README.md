@@ -37,7 +37,7 @@
 
 ## Overview
 
-This repository holds the public marketing landing page for **DRFT**, an AI-assisted resume editor. It captures early-access email signups into Supabase and is intentionally scoped to one page, one scroll, one call to action — no imagery, no third-party animation libraries, all visuals are DOM/CSS.
+This repository holds the public marketing landing page for **DRFT**, an AI-assisted resume editor. It captures early-access email signups into Supabase and is intentionally scoped to one page, one scroll, and one call to action. The page is light-first with a persistent dark theme, uses the supplied DRFT brand kit, and builds its product visuals from DOM/CSS without an animation library.
 
 ## Features
 
