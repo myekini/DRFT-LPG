@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F4EF;font-family:Geist,system-ui,sans-serif;color:#111111}
+a{color:#0B8F66}a:hover{color:#111111}
+</style>
+</helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;gap:32px;padding:48px;box-sizing:border-box;max-width:1200px;margin:0 auto">
+<div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap">
+<div style="font:500 12px 'Geist Mono',monospace;letter-spacing:0.1em;color:#55534E">DRFT · MOTION · THE CURSOR JOINS THE BOWL AND TURNS TO INK</div>
+<div style="font:400 13px Geist,sans-serif;color:#55534E">Files: <a href="motion/drft-settle-light.svg">light</a> · <a href="motion/drft-settle-dark.svg">dark</a> · <a href="motion/drft-settle-transparent.svg">transparent</a></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+<div style="background:#F6F4EF;border:1px solid #E1DED6;aspect-ratio:1;display:flex;align-items:center;justify-content:center"><img src="motion/drft-settle-light.svg" alt="" style="width:100%;height:100%"></div>
+<div style="background:#0A0A0A;aspect-ratio:1;display:flex;align-items:center;justify-content:center"><img src="motion/drft-settle-dark.svg" alt="" style="width:100%;height:100%"></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px">
+<div style="display:flex;flex-direction:column;gap:10px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 12px/1.5 Geist,sans-serif;color:#55534E"><span style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em">0.0s</span><br>Proposed. Cursor rests, blinks twice.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28" opacity="0.15"></path></svg></div><div style="font:400 12px/1.5 Geist,sans-serif;color:#55534E"><span style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em">0.9s</span><br>Blink. Waiting for you.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M112 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 12px/1.5 Geist,sans-serif;color:#55534E"><span style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em">1.6s</span><br>Approved. Cursor slides toward the bowl.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M88 0V150" stroke="#0B6A4E" stroke-width="28"></path></svg></div><div style="font:400 12px/1.5 Geist,sans-serif;color:#55534E"><span style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em">2.0s</span><br>Joins the bowl; mint fades.</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M88 0V150" stroke="#111111" stroke-width="28"></path></svg></div><div style="font:400 12px/1.5 Geist,sans-serif;color:#55534E"><span style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em">2.4s</span><br>Settled. A whole “d”, in ink.</div></div>
+</div>
+<div style="font:400 14px/1.6 Geist,sans-serif;color:#55534E;max-width:640px;text-wrap:pretty">Loop is 4s for preview. In product, play once (~1.2s from approval to settled) on launch or when a document finishes loading. Ease: cubic-bezier(.7,0,.2,1). The bowl never moves; only the cursor travels.</div>
+</div>
+</x-dc>
+</body>
+</html>
