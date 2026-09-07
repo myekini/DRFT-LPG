@@ -1,7 +1,6 @@
 import { ArrowDown, Check } from 'lucide-react';
 import { WaitlistForm } from './WaitlistForm';
 import { HeroDemo } from './HeroDemo';
-import { BrandMark } from './BrandLogo';
 import { ScrollStage } from './ScrollStage';
 
 export function HeroSection() {
@@ -10,12 +9,7 @@ export function HeroSection() {
       <div className="hero-copy">
         <h1 id="hero-heading">
           AI edits.<br />
-          You{' '}
-          <span className="headline-highlight" title="AI proposes, you decide.">
-            <span className="sr-only">d</span>
-            <BrandMark className="decide-letter-d" animated />
-            <span className="decide-suffix">ecide.</span>
-          </span>
+          You <span className="headline-highlight">decide.</span>
         </h1>
         <p className="hero-body">A stronger resume. Still unmistakably you.<br />Chat, refine, and approve every change in one place.</p>
         <WaitlistForm />
