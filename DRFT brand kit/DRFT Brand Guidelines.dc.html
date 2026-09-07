@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F6F4EF;font-family:Geist,system-ui,sans-serif;color:#111111}
+a{color:#0B8F66}a:hover{color:#111111}
+@keyframes drft-settle{0%,30%{transform:translateX(0)}50%,100%{transform:translateX(-52px)}}
+@keyframes drft-ink{0%,42%{stroke:#0B8F66}58%,100%{stroke:#111111}}
+@keyframes drft-blink{0%,30%{opacity:1}8%{opacity:0.15}18%{opacity:1}24%{opacity:0.15}}
+</style>
+</helmet>
+<div style="width:1440px;margin:0 auto;padding:96px 96px 160px;box-sizing:border-box;display:flex;flex-direction:column;gap:120px">
+
+<!-- COVER -->
+<div data-screen-label="Cover" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;min-height:560px">
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="font:500 12px 'Geist Mono',monospace;letter-spacing:0.1em;color:#55534E">DRFT · BRAND GUIDELINES · V2</div>
+<svg viewBox="0 0 433 150" width="380" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg>
+<div style="font:400 56px/1.05 'Instrument Serif',serif;letter-spacing:-0.01em">AI edits.<br>You decide.</div>
+<div style="font:400 17px/1.55 Geist,sans-serif;color:#55534E;max-width:460px;text-wrap:pretty">DRFT proposes changes to your resume. You approve them. The identity is built on that single moment: a letter being revised, then settling into its final form.</div>
+</div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:560px;display:flex;align-items:center;justify-content:center;position:relative">{{ settlingMark }}<div style="position:absolute;left:24px;bottom:20px;font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">MOTION · the cursor joins the bowl and turns to ink</div></div>
+</div>
+
+<!-- IDEA -->
+<div data-screen-label="Idea" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">01 — THE IDEA</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<div style="font:400 32px/1.25 'Instrument Serif',serif;max-width:760px;text-wrap:pretty">Two states of one letter. The symbol is a “d” mid-edit: its stem has stepped away and become an insertion cursor. The wordmark is the same “d” after approval: whole, settled, in ink.</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:flex;flex-direction:column;gap:28px;align-items:flex-start"><svg viewBox="0 0 152 150" height="120" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg><div style="display:flex;flex-direction:column;gap:6px"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#0B8F66">PROPOSED</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E">The symbol. Used alone only where a wordmark cannot fit: favicon, app icon, avatar.</div></div></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:flex;flex-direction:column;gap:28px;align-items:flex-start"><svg viewBox="0 0 100 150" height="120" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path></svg><div style="display:flex;flex-direction:column;gap:6px"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">APPROVED</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E">The wordmark’s “d”. The primary logo is always the full wordmark, never the symbol.</div></div></div>
+</div>
+</div>
+</div>
+
+<!-- MARK -->
+<div data-screen-label="Mark" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">02 — SYMBOL</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Built on a 150-unit height. Bowl stroke 24, cursor stroke 28, gap 24. The cursor is heavier than the bowl so it reads as a cursor and not a second letter. Never close the gap; the settled form is the wordmark’s job.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:360px;display:flex;align-items:center;justify-content:center;position:relative">
+<svg viewBox="-30 -30 212 210" height="300" fill="none"><g stroke="#E1DED6" stroke-width="1"><path d="M0 -30V180M100 -30V180M124 -30V180M152 -30V180M-30 0H182M-30 50H182M-30 150H182"></path></g><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path><g font-family="Geist Mono" font-size="9" fill="#9A978F"><text x="104" y="-14">24</text><text x="128" y="-14">28</text><text x="40" y="-14">100</text><text x="-28" y="-6">0</text><text x="-28" y="44">50</text><text x="-28" y="144">150</text></g></svg>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="background:#F6F4EF;border:1px solid #E1DED6;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">LIGHT</div></div>
+<div style="background:#0A0A0A;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px"><svg viewBox="0 0 152 150" height="72" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">DARK</div></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px"><svg viewBox="0 0 152 150" height="72" fill="none" stroke="#000000"><circle cx="50" cy="100" r="38" stroke-width="24"></circle><path d="M138 0V150" stroke-width="28"></path></svg><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">MONO BLACK</div></div>
+<div style="background:#55534E;height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px"><svg viewBox="0 0 152 150" height="72" fill="none" stroke="#FFFFFF"><circle cx="50" cy="100" r="38" stroke-width="24"></circle><path d="M138 0V150" stroke-width="28"></path></svg><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#E1DED6">MONO WHITE</div></div>
+</div>
+</div>
+</div>
+
+<!-- WORDMARK -->
+<div data-screen-label="Wordmark" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">03 — WORDMARK</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Custom-drawn, monolinear, 18-unit stroke on the same 150-unit grid. Square terminals throughout. The “r” keeps its downward tick, the flag of an editing cursor. Always lowercase. Never set the name in a typeface.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:320px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 433 150" width="640" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:#0A0A0A;height:160px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 433 150" width="260" fill="none" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg></div>
+<div style="background:#F6F4EF;border:1px solid #E1DED6;height:160px;display:flex;align-items:center;justify-content:center;gap:40px"><svg viewBox="0 0 433 150" height="24" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><svg viewBox="0 0 433 150" height="16" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><svg viewBox="0 0 433 150" height="12" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg></div>
+</div>
+</div>
+</div>
+
+<!-- LOCKUPS + CLEAR SPACE -->
+<div data-screen-label="Lockups" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">04 — LOCKUPS, CLEAR SPACE, MINIMUM SIZE</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Lockups are secondary. Use them where the symbol must be introduced next to the name (app store listings, partner pages). Gap between symbol and wordmark is 60 units, 0.4× the height.<br><br>Clear space on every asset is 1× the x-height (the bowl height) on all sides.<br><br>Minimum sizes: wordmark 64px wide / 16mm print. Symbol 16px / 5mm. Horizontal lockup 120px wide.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:grid;grid-template-columns:1.6fr 1fr;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+<svg viewBox="0 0 845 350" width="560" fill="none"><g stroke="#E1DED6" stroke-dasharray="4 4"><rect x="0.5" y="0.5" width="844" height="349"></rect><rect x="100.5" y="100.5" width="644" height="149"></rect></g><g transform="translate(100 100)"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></g><g transform="translate(312 100)" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g><g font-family="Geist Mono" font-size="12" fill="#9A978F"><text x="40" y="60">1×</text><text x="262" y="160">0.4×</text></g></svg>
+</div>
+<div style="background:#0A0A0A;height:300px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 433 360" height="220" fill="none"><g transform="translate(140.5 0)"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></g><g transform="translate(0 210)" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
+</div>
+<div style="background:#F6F4EF;border:1px solid #E1DED6;height:120px;display:flex;align-items:center;justify-content:space-evenly">
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><svg viewBox="0 0 433 150" width="64" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">WORDMARK 64PX</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><svg viewBox="0 0 152 150" height="16" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">SYMBOL 16PX</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><img src="brand-kit/lockup/horizontal/drft-horizontal-light-2x.png" alt="" style="height:52px;margin:-16px 0"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">LOCKUP 120PX</div></div>
+</div>
+</div>
+</div>
+
+<!-- COLOR -->
+<div data-screen-label="Color" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">05 — COLOR</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Paper and ink carry the brand. Mint appears in one role: a change that is proposed, active, or just confirmed. It never fills a background, never glows, never becomes a gradient. On light surfaces use Mint Deep for anything that must be read; Mint is for dark surfaces and small fills.</div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#F6F4EF;border:1px solid #E1DED6"></div><div style="font:500 13px Geist,sans-serif">Paper</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#F6F4EF · light background</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#FFFFFF;border:1px solid #E1DED6"></div><div style="font:500 13px Geist,sans-serif">White</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#FFFFFF · cards, documents</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#E1DED6"></div><div style="font:500 13px Geist,sans-serif">Rule</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#E1DED6 · borders, dividers</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#9A978F"></div><div style="font:500 13px Geist,sans-serif">Stone</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#9A978F · placeholders, deletions</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#55534E"></div><div style="font:500 13px Geist,sans-serif">Graphite</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#55534E · secondary text</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#111111"></div><div style="font:500 13px Geist,sans-serif">Ink</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#111111 · primary text, wordmark</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#0A0A0A"></div><div style="font:500 13px Geist,sans-serif">Night</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#0A0A0A · dark background</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#F0F0F0;border:1px solid #E1DED6"></div><div style="font:500 13px Geist,sans-serif">Night Text</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#F0F0F0 · text on Night</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#00E5A0"></div><div style="font:500 13px Geist,sans-serif">Mint</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#00E5A0 · accent on dark, small fills</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#0B8F66"></div><div style="font:500 13px Geist,sans-serif">Mint Deep</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#0B8F66 · accent + text on light</div></div>
+<div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;background:#E3F6EE"></div><div style="font:500 13px Geist,sans-serif">Mint Tint</div><div style="font:400 12px 'Geist Mono',monospace;color:#55534E">#E3F6EE · insertion highlight</div></div>
+<div style="display:flex;flex-direction:column;gap:10px;justify-content:flex-end"><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">No red. Deletions are Stone with a strikethrough; the absence of alarm is part of the tone.</div></div>
+</div>
+</div>
+
+<!-- TYPE -->
+<div data-screen-label="Typography" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">06 — TYPOGRAPHY</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Three voices. Instrument Serif for the few sentences that carry the message. Geist for everything people read and use. Geist Mono for the small precise layer: labels, metadata, and the edits themselves.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">INSTRUMENT SERIF 400<br>DISPLAY · 40–96PX</div><div style="font:400 56px/1.05 'Instrument Serif',serif;letter-spacing:-0.01em">Your voice, <em>better argued.</em></div></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">GEIST 400 / 500<br>UI + BODY · 13–20PX</div><div style="display:flex;flex-direction:column;gap:10px"><div style="font:500 20px/1.3 Geist,sans-serif">Three edits proposed for “Experience”</div><div style="font:400 16px/1.55 Geist,sans-serif;color:#55534E;max-width:620px;text-wrap:pretty">DRFT rewrites one line at a time and shows you exactly what changed. Nothing is saved until you accept it, and your original wording is always one click away.</div></div></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:baseline"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#55534E">GEIST MONO 400 / 500<br>LABELS + DIFFS · 11–14PX</div><div style="display:flex;flex-direction:column;gap:12px"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.1em;color:#0B8F66">PROPOSED EDIT · LINE 14</div><div style="font:400 14px/1.7 'Geist Mono',monospace"><span style="color:#9A978F;text-decoration:line-through">Responsible for managing a team</span> <span style="background:#E3F6EE;color:#111111;padding:1px 4px">Led a team of six engineers</span> shipping the checkout redesign.</div></div></div>
+</div>
+</div>
+
+<!-- FAVICON -->
+<div data-screen-label="Favicon" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">07 — FAVICON + APP ICON</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">favicon.svg switches ink and mint for light and dark browser chrome automatically. PNG fallbacks at 16 and 32 in both. App icons put the symbol at 50% of the tile on Night; a Paper tile exists for light launchers.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:140px;display:flex;align-items:flex-end;justify-content:space-evenly;padding-bottom:28px;box-sizing:border-box">
+<img src="brand-kit/favicon/favicon-16-light.png" alt="" width="16" height="16" style="image-rendering:auto"><svg viewBox="0 0 152 150" height="24" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg><img src="brand-kit/favicon/favicon-32-light.png" alt="" width="32" height="32"><svg viewBox="0 0 152 150" height="48" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div>
+<div style="background:#0A0A0A;height:140px;display:flex;align-items:flex-end;justify-content:space-evenly;padding-bottom:28px;box-sizing:border-box">
+<img src="brand-kit/favicon/favicon-16-dark.png" alt="" width="16" height="16"><svg viewBox="0 0 152 150" height="24" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg><img src="brand-kit/favicon/favicon-32-dark.png" alt="" width="32" height="32"><svg viewBox="0 0 152 150" height="48" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg></div>
+</div>
+<div style="display:flex;gap:24px;align-items:flex-end">
+<img src="brand-kit/favicon/icon-512.png" alt="" style="width:160px;height:160px;border-radius:36px"><img src="brand-kit/favicon/apple-touch-icon.png" alt="" style="width:90px;height:90px;border-radius:20px"><img src="brand-kit/favicon/icon-512-light.png" alt="" style="width:90px;height:90px;border-radius:20px;border:1px solid #E1DED6;box-sizing:border-box"><img src="brand-kit/social/avatar-dark.png" alt="" style="width:64px;height:64px;border-radius:50%"><img src="brand-kit/social/avatar-light.png" alt="" style="width:64px;height:64px;border-radius:50%;border:1px solid #E1DED6;box-sizing:border-box"><img src="brand-kit/social/producthunt-thumb.png" alt="" style="width:48px;height:48px;border-radius:8px;border:1px solid #E1DED6;box-sizing:border-box">
+</div>
+</div>
+</div>
+
+<!-- IN USE -->
+<div data-screen-label="In use" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">08 — IN USE</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">The wordmark leads in every product and marketing surface. The symbol appears only where the name cannot.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">BROWSER TAB</div><div style="background:#E8E6E1;border-radius:8px 8px 0 0;padding:8px 8px 0;display:flex;gap:6px;align-items:flex-end"><div style="background:#FFFFFF;border-radius:6px 6px 0 0;padding:8px 12px;display:flex;align-items:center;gap:8px;font:400 12px Geist,sans-serif;color:#111111;width:240px"><img src="brand-kit/favicon/favicon-16-light.png" alt="" width="16" height="16"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">drft — AI edits. You decide.</span></div><div style="padding:8px 12px;font:400 12px Geist,sans-serif;color:#55534E;display:flex;gap:8px;align-items:center"><div style="width:14px;height:14px;border-radius:3px;background:#C9C6BE"></div>Resume_final_v3.pdf</div></div><div style="background:#FFFFFF;height:24px;border-bottom:1px solid #E1DED6"></div></div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">BROWSER TAB · DARK</div><div style="background:#202020;border-radius:8px 8px 0 0;padding:8px 8px 0;display:flex;gap:6px;align-items:flex-end"><div style="background:#0A0A0A;border-radius:6px 6px 0 0;padding:8px 12px;display:flex;align-items:center;gap:8px;font:400 12px Geist,sans-serif;color:#F0F0F0;width:240px"><img src="brand-kit/favicon/favicon-16-dark.png" alt="" width="16" height="16"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">drft — AI edits. You decide.</span></div><div style="padding:8px 12px;font:400 12px Geist,sans-serif;color:#9A978F;display:flex;gap:8px;align-items:center"><div style="width:14px;height:14px;border-radius:3px;background:#3A3A3A"></div>Resume_final_v3.pdf</div></div><div style="background:#0A0A0A;height:24px"></div></div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">LANDING PAGE NAVIGATION</div>
+<div style="background:#F6F4EF;border:1px solid #E1DED6;padding:0 40px;height:72px;display:flex;justify-content:space-between;align-items:center"><svg viewBox="0 0 433 150" height="22" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="display:flex;gap:32px;align-items:center;font:400 14px Geist,sans-serif;color:#55534E"><span>How it works</span><span>Pricing</span><span>Sign in</span><span style="background:#111111;color:#F0F0F0;padding:10px 16px;border-radius:4px;font-weight:500">Join the waitlist</span></div></div>
+<div style="background:#0A0A0A;padding:0 40px;height:72px;display:flex;justify-content:space-between;align-items:center"><svg viewBox="0 0 433 150" height="22" fill="none" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="display:flex;gap:32px;align-items:center;font:400 14px Geist,sans-serif;color:#9A978F"><span>How it works</span><span>Pricing</span><span>Sign in</span><span style="background:#F0F0F0;color:#111111;padding:10px 16px;border-radius:4px;font-weight:500">Join the waitlist</span></div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:390px 1fr;gap:16px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">MOBILE HEADER</div>
+<div style="background:#F6F4EF;border:1px solid #E1DED6;width:390px;box-sizing:border-box"><div style="height:44px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font:500 14px Geist,sans-serif"><span>9:41</span><div style="display:flex;gap:6px"><div style="width:16px;height:10px;border:1px solid #111111;border-radius:2px"></div></div></div><div style="height:56px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;border-bottom:1px solid #E1DED6"><svg viewBox="0 0 433 150" height="18" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="display:flex;align-items:center;gap:8px;font:500 12px 'Geist Mono',monospace;color:#0B8F66"><div style="width:8px;height:8px;border-radius:50%;background:#00E5A0"></div>3 PROPOSED</div></div><div style="padding:20px;display:flex;flex-direction:column;gap:14px"><div style="font:400 22px/1.2 'Instrument Serif',serif">Experience</div><div style="font:400 14px/1.6 Geist,sans-serif;color:#111111"><span style="color:#9A978F;text-decoration:line-through">Responsible for managing a team</span> <span style="background:#E3F6EE;padding:1px 3px">Led a team of six engineers</span> shipping the checkout redesign, lifting conversion 12%.</div><div style="display:flex;gap:8px"><div style="background:#111111;color:#F0F0F0;font:500 13px Geist,sans-serif;padding:10px 14px;border-radius:4px;min-height:44px;display:flex;align-items:center;box-sizing:border-box">Accept</div><div style="border:1px solid #E1DED6;color:#111111;font:500 13px Geist,sans-serif;padding:10px 14px;border-radius:4px;min-height:44px;display:flex;align-items:center;box-sizing:border-box">Keep mine</div></div></div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">PRODUCT TOOLBAR</div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6"><div style="height:52px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 20px;border-bottom:1px solid #E1DED6"><div style="display:flex;align-items:center;gap:16px"><svg viewBox="0 0 433 150" height="16" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="width:1px;height:16px;background:#E1DED6"></div><span style="font:400 13px Geist,sans-serif;color:#55534E">Resume — Product Designer</span></div><div style="display:flex;align-items:center;gap:8px;font:500 12px 'Geist Mono',monospace;color:#0B8F66;letter-spacing:0.04em"><div style="width:8px;height:8px;border-radius:50%;background:#00E5A0"></div>3 PROPOSED EDITS</div><div style="display:flex;justify-content:flex-end;gap:8px"><span style="border:1px solid #E1DED6;font:500 13px Geist,sans-serif;padding:7px 12px;border-radius:4px">Review</span><span style="background:#111111;color:#F0F0F0;font:500 13px Geist,sans-serif;padding:7px 12px;border-radius:4px">Accept all</span></div></div><div style="padding:24px 28px;display:flex;flex-direction:column;gap:10px;font:400 14px/1.7 Geist,sans-serif"><div style="font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">EXPERIENCE · SENIOR DESIGNER, 2021–</div><div><span style="color:#9A978F;text-decoration:line-through">Worked on</span> <span style="background:#E3F6EE;padding:1px 3px">Owned end-to-end design for</span> the payments flow used by 2M customers.</div><div style="color:#111111">Ran weekly research sessions and turned findings into a shared component library.</div></div></div>
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:600px 1fr;gap:16px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">WAITLIST CONFIRMATION EMAIL · 600PX</div>
+<div style="background:#F6F4EF;padding:32px;width:600px;box-sizing:border-box"><div style="background:#FFFFFF;border:1px solid #E1DED6;padding:40px;display:flex;flex-direction:column;gap:28px"><svg viewBox="0 0 433 150" height="20" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="font:400 34px/1.15 'Instrument Serif',serif">You’re on the list.</div><div style="font:400 15px/1.6 Geist,sans-serif;color:#55534E;text-wrap:pretty">We’ll email you when your spot opens. Until then, nothing about your resume changes unless you say so. That’s the whole idea.</div><div style="display:flex"><span style="background:#111111;color:#F0F0F0;font:500 14px Geist,sans-serif;padding:12px 18px;border-radius:4px">See how DRFT edits</span></div></div><div style="font:400 11px/1.6 'Geist Mono',monospace;color:#9A978F;padding:20px 0 0">drft.io · You received this because you joined the waitlist. Unsubscribe.</div></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">SOCIAL PREVIEW + GITHUB AVATAR</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<div style="background:#FFFFFF;border:1px solid #E1DED6;border-radius:12px;overflow:hidden;width:100%"><img src="brand-kit/social/og-image.png" alt="" style="display:block;width:100%;aspect-ratio:1200/630;object-fit:cover;background:#F6F4EF"><div style="padding:12px 16px;display:flex;flex-direction:column;gap:2px;border-top:1px solid #E1DED6"><div style="font:400 12px Geist,sans-serif;color:#9A978F">drft.io</div><div style="font:500 14px Geist,sans-serif">drft — AI edits. You decide.</div><div style="font:400 13px Geist,sans-serif;color:#55534E">Tailor your resume with AI that proposes, never overwrites.</div></div></div>
+<div style="display:flex;gap:16px;align-items:center;background:#0D1117;border-radius:8px;padding:16px"><img src="brand-kit/social/avatar-dark.png" alt="" style="width:64px;height:64px;border-radius:50%;border:1px solid #30363D"><div style="display:flex;flex-direction:column;gap:4px"><div style="font:500 18px Geist,sans-serif;color:#F0F6FC">drft-io</div><div style="font:400 13px Geist,sans-serif;color:#8B949E">AI edits. You decide. · 4 repositories</div></div></div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- SOCIAL MASTERS -->
+<div data-screen-label="Social" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">09 — SOCIAL MASTERS</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Open Graph 1200×630 in light and dark, GitHub banner 1280×640. The message is the wordmark, the tagline, and one real edit awaiting approval. Nothing else.</div></div>
+<div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start;overflow:hidden">
+<div style="transform:scale(0.8);transform-origin:top left;width:1200px;height:630px;margin:0 -240px -126px 0">
+<div id="og-light" style="width:1200px;height:630px;background:#F6F4EF;box-sizing:border-box;padding:72px 80px;display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center;position:relative">
+<div style="display:flex;flex-direction:column;gap:40px;align-items:flex-start"><svg viewBox="0 0 433 150" height="64" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="font:400 92px/1 'Instrument Serif',serif;letter-spacing:-0.015em;color:#111111">AI edits.<br>You decide.</div><div style="font:400 24px/1.4 Geist,sans-serif;color:#55534E">Resume editing that proposes, never overwrites.</div></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;padding:36px;display:flex;flex-direction:column;gap:24px;box-shadow:0 1px 0 #E1DED6"><div style="display:flex;align-items:center;gap:10px;font:500 14px 'Geist Mono',monospace;letter-spacing:0.08em;color:#0B8F66"><div style="width:10px;height:10px;border-radius:50%;background:#00E5A0"></div>PROPOSED EDIT</div><div style="font:400 24px/1.55 Geist,sans-serif;color:#111111"><span style="color:#9A978F;text-decoration:line-through">Responsible for managing a team</span> <span style="background:#E3F6EE;padding:2px 6px">Led a team of six engineers</span> shipping the checkout redesign.</div><div style="display:flex;gap:12px"><div style="background:#111111;color:#F0F0F0;font:500 18px Geist,sans-serif;padding:14px 22px;border-radius:6px">Accept</div><div style="border:1.5px solid #E1DED6;color:#111111;font:500 18px Geist,sans-serif;padding:14px 22px;border-radius:6px">Keep mine</div></div></div>
+</div></div>
+<div style="transform:scale(0.8);transform-origin:top left;width:1200px;height:630px;margin:0 -240px -126px 0">
+<div id="og-dark" style="width:1200px;height:630px;background:#0A0A0A;box-sizing:border-box;padding:72px 80px;display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center">
+<div style="display:flex;flex-direction:column;gap:40px;align-items:flex-start"><svg viewBox="0 0 433 150" height="64" fill="none" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="font:400 92px/1 'Instrument Serif',serif;letter-spacing:-0.015em;color:#F0F0F0">AI edits.<br>You decide.</div><div style="font:400 24px/1.4 Geist,sans-serif;color:#9A978F">Resume editing that proposes, never overwrites.</div></div>
+<div style="background:#161616;border:1px solid #2A2A2A;padding:36px;display:flex;flex-direction:column;gap:24px"><div style="display:flex;align-items:center;gap:10px;font:500 14px 'Geist Mono',monospace;letter-spacing:0.08em;color:#00E5A0"><div style="width:10px;height:10px;border-radius:50%;background:#00E5A0"></div>PROPOSED EDIT</div><div style="font:400 24px/1.55 Geist,sans-serif;color:#F0F0F0"><span style="color:#6B6A66;text-decoration:line-through">Responsible for managing a team</span> <span style="background:#123B2E;color:#F0F0F0;padding:2px 6px">Led a team of six engineers</span> shipping the checkout redesign.</div><div style="display:flex;gap:12px"><div style="background:#F0F0F0;color:#111111;font:500 18px Geist,sans-serif;padding:14px 22px;border-radius:6px">Accept</div><div style="border:1.5px solid #2A2A2A;color:#F0F0F0;font:500 18px Geist,sans-serif;padding:14px 22px;border-radius:6px">Keep mine</div></div></div>
+</div></div>
+<div style="transform:scale(0.8);transform-origin:top left;width:1280px;height:640px;margin:0 -256px -128px 0">
+<div id="github-banner" style="width:1280px;height:640px;background:#0A0A0A;box-sizing:border-box;padding:0 120px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:48px">
+<svg viewBox="0 0 433 150" height="96" fill="none" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg>
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:64px"><div style="font:400 72px/1.05 'Instrument Serif',serif;letter-spacing:-0.015em;color:#F0F0F0">AI edits. You decide.</div><div style="font:400 26px/1.5 Geist,sans-serif;color:#9A978F;max-width:420px;text-wrap:pretty"><span style="color:#6B6A66;text-decoration:line-through">Responsible for</span> <span style="color:#00E5A0">Led</span> the checkout redesign.</div></div>
+</div></div>
+</div>
+</div>
+
+<!-- MISUSE -->
+<div data-screen-label="Misuse" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">10 — DON’T</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E">Each of these turns the idea into decoration.</div></div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="64" fill="none"><circle cx="50" cy="100" r="38" stroke="#0B8F66" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Mint on the bowl. Only the cursor is the change.</div></div>
+<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 100 150" height="64" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M88 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Closing the gap. A joined symbol is just a “d”.</div></div>
+<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#0A0A0A;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="64" fill="none" style="filter:drop-shadow(0 0 14px #00E5A0)"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Glows, gradients, or mint backgrounds.</div></div>
+<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><div style="font:500 44px 'Geist Mono',monospace;letter-spacing:0.06em">drft</div></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Typing the name. The wordmark is drawn, not set.</div></div>
+</div>
+</div>
+
+<!-- CHECKLIST -->
+<div data-screen-label="Checklist" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
+<div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">11 — REVIEW</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 48px;font:400 15px/1.5 Geist,sans-serif;color:#111111">
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>No cross or medical read at 16px: a circle and a bar.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Not an add button: nothing radiates from a centre.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Communicates editing: a letter with a cursor beside it.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Connected to the wordmark: it is the wordmark’s first letter.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Recognisable without mint: mono variants supplied.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Wordmark readable: the settled “d” is solid; tested to 12px.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Social preview reads in two seconds: name, promise, one edit.</div>
+<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Every element has a job: no rules, glows, or badges remain.</div>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motionSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:8,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const dur = (this.props.motionSeconds ?? 4) + 's';
+    const e = React.createElement;
+    return {
+      settlingMark: e('svg', { viewBox: '0 0 152 150', height: 260, fill: 'none', style: { overflow: 'visible' } },
+        e('circle', { cx: 50, cy: 100, r: 38, stroke: '#111111', strokeWidth: 24 }),
+        e('g', { style: { animation: `drft-settle ${dur} cubic-bezier(.7,0,.2,1) infinite` } },
+          e('path', { d: 'M138 0V150', strokeWidth: 28, style: { animation: `drft-ink ${dur} linear infinite, drft-blink ${dur} steps(1) infinite` } })
+        )
+      )
+    };
+  }
+}
+</script>
+</body>
+</html>

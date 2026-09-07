@@ -7,43 +7,62 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 :root {
-  --color-void: #ffffff;
-  --color-base: #f7f7f5;
-  --color-raised: #efefec;
-  --color-text-1: #171816;
-  --color-text-2: #575b55;
-  --color-text-3: #6c7169;
-  --color-mint: #00e5a0;
-  --accent-ink: #086b49;
-  --accent-soft: #d9f7e7;
-  --border: #e5e6e1;
-  --surface-paper: #fff;
-  --warm-panel: #f6f4ef;
-  --cool-panel: #f0f4f2;
-  --nav-bg: rgb(255 255 255 / .96);
+  --color-void: #F6F4EF;        /* Paper */
+  --color-base: #FFFFFF;        /* White (cards, documents) */
+  --color-raised: #EFECE4;
+  --color-text-1: #111111;      /* Ink */
+  --color-text-2: #55534E;      /* Graphite */
+  --color-text-3: #9A978F;      /* Stone */
+  --color-mint-accent: #0B8F66; /* Mint Deep (accent + text on light) */
+  --color-mint: #00E5A0;        /* Mint */
+  --accent-ink: #0B8F66;        /* Mint Deep */
+  --accent-soft: #E3F6EE;       /* Mint Tint (insertion highlight) */
+  --border: #E1DED6;            /* Rule */
+  --surface-paper: #FFFFFF;
+  --warm-panel: #F6F4EF;
+  --cool-panel: #E3F6EE;
+  --nav-bg: rgb(246 244 239 / 0.94);
   --font-serif: var(--font-instrument-serif), Georgia, serif;
   --font-sans: var(--font-geist-sans), sans-serif;
   --font-mono: var(--font-geist-mono), monospace;
   color-scheme: light;
 }
 :root[data-theme="dark"] {
-  --color-void: #10110f;
-  --color-base: #191b18;
-  --color-raised: #242722;
-  --color-text-1: #f2f3ec;
-  --color-text-2: #b1b7ac;
-  --color-text-3: #979f92;
-  --accent-ink: #86e7b7;
-  --accent-soft: #193e2e;
-  --border: #30352c;
-  --surface-paper: #20231e;
-  --warm-panel: #211f1a;
-  --cool-panel: #18251e;
-  --nav-bg: rgb(16 17 15 / .96);
+  --color-void: #0A0A0A;        /* Night */
+  --color-base: #161616;        /* Night Surface */
+  --color-raised: #202020;
+  --color-text-1: #F0F0F0;      /* Night Text */
+  --color-text-2: #9A978F;      /* Stone / Graphite */
+  --color-text-3: #626059;
+  --color-mint-accent: #00E5A0; /* Mint */
+  --color-mint: #00E5A0;
+  --accent-ink: #00E5A0;
+  --accent-soft: #123B2E;       /* Mint Night */
+  --border: #262624;            /* Rule dark */
+  --surface-paper: #161616;
+  --warm-panel: #141412;
+  --cool-panel: #0E1E18;
+  --nav-bg: rgb(10 10 10 / 0.94);
   color-scheme: dark;
 }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; scrollbar-color: #a0a49b var(--color-void); background: var(--color-void); }
 body { margin: 0; background: var(--color-void); color: var(--color-text-1); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+/* Architectural drafting paper grid canvas (inspired by precision blueprints) */
+.hero {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}
+[data-theme="dark"] .hero {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
 button, a, input { -webkit-tap-highlight-color: transparent; }
 button { cursor: pointer; }
 a { text-underline-offset: 4px; }
@@ -58,15 +77,39 @@ h1, h2, h3 { text-wrap: balance; }
 .serif-word { font-family: var(--font-serif); font-weight: 400; font-style: italic; letter-spacing: -.025em; }
 .section-title-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 54px; }
 .section-title-row > p { color: var(--color-text-2); font-size: 16px; line-height: 1.65; padding-bottom: 5px; }
-/* Supplied lockups, framed around their original ink bounds. */
-.brand-logo { position: relative; display: block; width: 110px; height: 36px; overflow: hidden; }
-.brand-logo img { position: absolute; width: 159px; max-width: none; height: auto; left: -24px; top: -18px; }
-.logo-dark { display: none; }
-[data-theme="dark"] .logo-dark { display: block; }
-[data-theme="dark"] .logo-light { display: none; }
-.brand-logo-large { width: 150px; height: 48px; }
-.brand-logo-large img { width: 217px; left: -32px; top: -25px; }
-[data-theme="dark"] .brand-logo { mix-blend-mode: screen; }
+
+/* DRFT Brand Kit v2: Primary Wordmark (custom-drawn, monolinear) */
+.brand-logo { display: inline-flex; align-items: center; color: var(--color-text-1); height: 26px; }
+.brand-wordmark-svg { height: 26px; width: auto; max-width: 100%; display: block; }
+.brand-logo-large { height: 36px; }
+.brand-logo-large .brand-wordmark-svg { height: 36px; }
+
+/* DRFT Brand Kit v2: Symbol (bowl + insertion cursor stem) */
+.brand-mark { display: inline-block; width: 1.15em; height: 1.15em; vertical-align: -0.18em; flex-shrink: 0; }
+.brand-mark .mark-bowl { stroke: currentColor; }
+.brand-mark .mark-cursor {
+  stroke: var(--color-mint-accent);
+  transition: transform 420ms cubic-bezier(.16,1,.3,1), stroke 350ms ease;
+  transform-origin: center;
+}
+.brand-mark.is-settled .mark-cursor {
+  transform: translateX(-52px);
+  stroke: currentColor;
+}
+.brand-mark.is-animated .mark-cursor {
+  animation: drft-cursor-blink 3s step-end infinite, drft-cursor-settle 4s cubic-bezier(.16,1,.3,1) infinite alternate;
+}
+@keyframes drft-cursor-settle {
+  0%, 40% { transform: translateX(0); stroke: var(--color-mint-accent); }
+  65%, 100% { transform: translateX(-52px); stroke: currentColor; }
+}
+@keyframes drft-cursor-blink {
+  0%, 35% { opacity: 1; }
+  10% { opacity: 0.2; }
+  20% { opacity: 1; }
+  25% { opacity: 0.2; }
+  30%, 100% { opacity: 1; }
+}
 .nav { height: 80px; position: sticky; top: 0; z-index: 30; background: var(--nav-bg); border-bottom: 1px solid transparent; }
 .nav-scrolled { border-bottom-color: var(--border); }
 .nav-inner { height: 100%; width: min(1440px, calc(100% - 64px)); margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
