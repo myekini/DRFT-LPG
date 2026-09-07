@@ -14,9 +14,6 @@
 <style>
 body{margin:0;background:#F6F4EF;font-family:Geist,system-ui,sans-serif;color:#111111}
 a{color:#0B8F66}a:hover{color:#111111}
-@keyframes drft-settle{0%,30%{transform:translateX(0)}50%,100%{transform:translateX(-52px)}}
-@keyframes drft-ink{0%,42%{stroke:#0B8F66}58%,100%{stroke:#111111}}
-@keyframes drft-blink{0%,30%{opacity:1}8%{opacity:0.15}18%{opacity:1}24%{opacity:0.15}}
 </style>
 </helmet>
 <div style="width:1440px;margin:0 auto;padding:96px 96px 160px;box-sizing:border-box;display:flex;flex-direction:column;gap:120px">
@@ -29,7 +26,7 @@ a{color:#0B8F66}a:hover{color:#111111}
 <div style="font:400 56px/1.05 'Instrument Serif',serif;letter-spacing:-0.01em">AI edits.<br>You decide.</div>
 <div style="font:400 17px/1.55 Geist,sans-serif;color:#55534E;max-width:460px;text-wrap:pretty">DRFT proposes changes to your resume. You approve them. The identity is built on that single moment: a letter being revised, then settling into its final form.</div>
 </div>
-<div style="background:#FFFFFF;border:1px solid #E1DED6;height:560px;display:flex;align-items:center;justify-content:center;position:relative">{{ settlingMark }}<div style="position:absolute;left:24px;bottom:20px;font:500 11px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">MOTION · the cursor joins the bowl and turns to ink</div></div>
+<div style="background:#0A0A0A;height:560px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 480 150" width="520" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path><g stroke="#F0F0F0" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
 </div>
 
 <!-- IDEA -->
@@ -74,18 +71,24 @@ a{color:#0B8F66}a:hover{color:#111111}
 
 <!-- LOCKUPS + CLEAR SPACE -->
 <div data-screen-label="Lockups" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
-<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">04 — LOCKUPS, CLEAR SPACE, MINIMUM SIZE</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">Lockups are secondary. Use them where the symbol must be introduced next to the name (app store listings, partner pages). Gap between symbol and wordmark is 60 units, 0.4× the height.<br><br>Clear space on every asset is 1× the x-height (the bowl height) on all sides.<br><br>Minimum sizes: wordmark 64px wide / 16mm print. Symbol 16px / 5mm. Horizontal lockup 120px wide.</div></div>
+<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">04 — LOCKUPS, CLEAR SPACE, MINIMUM SIZE</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E;text-wrap:pretty">The symbol is never placed beside the wordmark; it would read “d drft”. In the horizontal lockup the mark <em>is</em> the initial: the mid-edit “d” followed by r, f, t in ink. The stacked lockup puts the symbol above the tagline.<br><br>Clear space on every asset is 1× the x-height (the bowl height) on all sides.<br><br>Minimum sizes: wordmark 64px wide / 16mm print. Symbol 16px / 5mm. Horizontal lockup 96px wide.</div></div>
 <div style="display:flex;flex-direction:column;gap:16px">
 <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:16px">
-<div style="background:#FFFFFF;border:1px solid #E1DED6;height:300px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
-<svg viewBox="0 0 845 350" width="560" fill="none"><g stroke="#E1DED6" stroke-dasharray="4 4"><rect x="0.5" y="0.5" width="844" height="349"></rect><rect x="100.5" y="100.5" width="644" height="149"></rect></g><g transform="translate(100 100)"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></g><g transform="translate(312 100)" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g><g font-family="Geist Mono" font-size="12" fill="#9A978F"><text x="40" y="60">1×</text><text x="262" y="160">0.4×</text></g></svg>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:300px;display:flex;align-items:center;justify-content:center">
+<svg viewBox="0 0 680 350" width="520" fill="none"><g stroke="#E1DED6" stroke-dasharray="4 4"><rect x="0.5" y="0.5" width="679" height="349"></rect><rect x="100.5" y="100.5" width="479" height="149"></rect></g><g transform="translate(100 100)"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path><g stroke="#111111" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></g><text x="40" y="60" font-family="Geist Mono" font-size="12" fill="#9A978F">1×</text></svg>
 </div>
-<div style="background:#0A0A0A;height:300px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 433 360" height="220" fill="none"><g transform="translate(140.5 0)"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></g><g transform="translate(0 210)" stroke="#F0F0F0" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
+<div style="background:#0A0A0A;height:300px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px"><svg viewBox="0 0 152 150" height="84" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg><div style="font:400 30px/1 'Instrument Serif',serif;color:#F0F0F0">AI edits. You decide.</div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+<div style="background:#F6F4EF;border:1px solid #E1DED6;height:120px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 480 150" width="180" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path><g stroke="#111111" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
+<div style="background:#0A0A0A;height:120px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 480 150" width="180" fill="none"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path><g stroke="#F0F0F0" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
+<div style="background:#FFFFFF;border:1px solid #E1DED6;height:120px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 480 150" width="180" fill="none"><circle cx="50" cy="100" r="38" stroke="#000000" stroke-width="24"></circle><path d="M138 0V150" stroke="#000000" stroke-width="28"></path><g stroke="#000000" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
+<div style="background:#55534E;height:120px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 480 150" width="180" fill="none"><circle cx="50" cy="100" r="38" stroke="#FFFFFF" stroke-width="24"></circle><path d="M138 0V150" stroke="#FFFFFF" stroke-width="28"></path><g stroke="#FFFFFF" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg></div>
 </div>
 <div style="background:#F6F4EF;border:1px solid #E1DED6;height:120px;display:flex;align-items:center;justify-content:space-evenly">
 <div style="display:flex;flex-direction:column;align-items:center;gap:12px"><svg viewBox="0 0 433 150" width="64" fill="none" stroke="#111111" stroke-width="18"><circle cx="50" cy="100" r="41"></circle><path d="M91 0V150"></path><path transform="translate(130 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(225 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(342 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></svg><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">WORDMARK 64PX</div></div>
 <div style="display:flex;flex-direction:column;align-items:center;gap:12px"><svg viewBox="0 0 152 150" height="16" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">SYMBOL 16PX</div></div>
-<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><img src="lockup/horizontal/drft-horizontal-light-2x.png" alt="" style="height:52px;margin:-16px 0"><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">LOCKUP 120PX</div></div>
+<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><svg viewBox="0 0 480 150" width="96" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path><g stroke="#111111" stroke-width="18"><path transform="translate(177 0)" d="M9 150V50M9 100A41 41 0 0 1 50 59H62V78"></path><path transform="translate(272 0)" d="M41 150V50A41 41 0 0 1 82 9M18 59H82"></path><path transform="translate(389 0)" d="M41 27V109A41 41 0 0 0 82 150M18 59H82"></path></g></svg><div style="font:500 10px 'Geist Mono',monospace;letter-spacing:0.08em;color:#9A978F">LOCKUP 96PX</div></div>
 </div>
 </div>
 </div>
@@ -196,49 +199,11 @@ a{color:#0B8F66}a:hover{color:#111111}
 </div>
 </div>
 
-<!-- MISUSE -->
-<div data-screen-label="Misuse" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
-<div style="display:flex;flex-direction:column;gap:16px"><div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">10 — DON’T</div><div style="font:400 15px/1.5 Geist,sans-serif;color:#55534E">Each of these turns the idea into decoration.</div></div>
-<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
-<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="64" fill="none"><circle cx="50" cy="100" r="38" stroke="#0B8F66" stroke-width="24"></circle><path d="M138 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Mint on the bowl. Only the cursor is the change.</div></div>
-<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 100 150" height="64" fill="none"><circle cx="50" cy="100" r="38" stroke="#111111" stroke-width="24"></circle><path d="M88 0V150" stroke="#0B8F66" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Closing the gap. A joined symbol is just a “d”.</div></div>
-<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#0A0A0A;height:150px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 152 150" height="64" fill="none" style="filter:drop-shadow(0 0 14px #00E5A0)"><circle cx="50" cy="100" r="38" stroke="#F0F0F0" stroke-width="24"></circle><path d="M138 0V150" stroke="#00E5A0" stroke-width="28"></path></svg></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Glows, gradients, or mint backgrounds.</div></div>
-<div style="display:flex;flex-direction:column;gap:12px"><div style="background:#FFFFFF;border:1px solid #E1DED6;height:150px;display:flex;align-items:center;justify-content:center"><div style="font:500 44px 'Geist Mono',monospace;letter-spacing:0.06em">drft</div></div><div style="font:400 13px/1.5 Geist,sans-serif;color:#55534E">Typing the name. The wordmark is drawn, not set.</div></div>
-</div>
-</div>
-
-<!-- CHECKLIST -->
-<div data-screen-label="Checklist" style="display:grid;grid-template-columns:280px 1fr;gap:64px;border-top:1px solid #111111;padding-top:32px">
-<div style="font:500 13px 'Geist Mono',monospace;letter-spacing:0.08em">11 — REVIEW</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 48px;font:400 15px/1.5 Geist,sans-serif;color:#111111">
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>No cross or medical read at 16px: a circle and a bar.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Not an add button: nothing radiates from a centre.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Communicates editing: a letter with a cursor beside it.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Connected to the wordmark: it is the wordmark’s first letter.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Recognisable without mint: mono variants supplied.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Wordmark readable: the settled “d” is solid; tested to 12px.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Social preview reads in two seconds: name, promise, one edit.</div>
-<div style="display:flex;gap:12px;border-bottom:1px solid #E1DED6;padding-bottom:12px"><span style="color:#0B8F66;font-family:'Geist Mono',monospace">✓</span>Every element has a job: no rules, glows, or badges remain.</div>
-</div>
-</div>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;motionSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:4,&quot;min&quot;:2,&quot;max&quot;:8,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
-class Component extends DCLogic {
-  renderVals() {
-    const dur = (this.props.motionSeconds ?? 4) + 's';
-    const e = React.createElement;
-    return {
-      settlingMark: e('svg', { viewBox: '0 0 152 150', height: 260, fill: 'none', style: { overflow: 'visible' } },
-        e('circle', { cx: 50, cy: 100, r: 38, stroke: '#111111', strokeWidth: 24 }),
-        e('g', { style: { animation: `drft-settle ${dur} cubic-bezier(.7,0,.2,1) infinite` } },
-          e('path', { d: 'M138 0V150', strokeWidth: 28, style: { animation: `drft-ink ${dur} linear infinite, drft-blink ${dur} steps(1) infinite` } })
-        )
-      )
-    };
-  }
-}
+<script type="text/x-dc" data-dc-script >
+class Component extends DCLogic {}
 </script>
 </body>
 </html>

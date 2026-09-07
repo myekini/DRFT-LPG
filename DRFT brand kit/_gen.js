@@ -11,3 +11,11 @@ var drawMark = function(ctx,x,y,h,col,acc,sw=24){ var s=h/150; ctx.save(); ctx.t
 var drawWord = function(ctx,x,y,h,col){ var s=h/150; ctx.save(); ctx.translate(x,y); ctx.scale(s,s); ctx.lineWidth=18; ctx.lineCap='butt'; ctx.strokeStyle=col; ctx.beginPath(); ctx.arc(50,100,41,0,Math.PI*2); ctx.stroke(); ctx.stroke(new Path2D(W_D_STEM)); ctx.translate(130,0); ctx.stroke(new Path2D(W_R)); ctx.translate(95,0); ctx.stroke(new Path2D(W_F)); ctx.translate(117,0); ctx.stroke(new Path2D(W_T)); ctx.restore(); }
 var cv=(w,h,f)=>{var c=createCanvas(w,h);var ctx=c.getContext('2d');f(ctx,w,h);return c;};
 var bg=(ctx,w,h,c)=>{if(c){ctx.fillStyle=c;ctx.fillRect(0,0,w,h);}};
+
+// Integrated lockups — the mark is the initial d. r/f/t follow at the wordmark's spacing, shifted by the cursor gap (138-91=47).
+var LK_W = 433 + 47;
+var lockupSvg=(x,y,col,acc)=>`<g transform="translate(${x} ${y})" fill="none"><circle cx="50" cy="100" r="38" stroke="${col}" stroke-width="24"/><path d="M138 0V150" stroke="${acc}" stroke-width="28"/><g stroke="${col}" stroke-width="18"><path transform="translate(177 0)" d="${W_R}"/><path transform="translate(272 0)" d="${W_F}"/><path transform="translate(389 0)" d="${W_T}"/></g></g>`;
+var drawLockup=function(ctx,x,y,h,col,acc){ var s=h/150; ctx.save(); ctx.translate(x,y); ctx.scale(s,s); ctx.lineCap='butt'; ctx.strokeStyle=col; ctx.lineWidth=24; ctx.beginPath(); ctx.arc(50,100,38,0,Math.PI*2); ctx.stroke(); ctx.strokeStyle=acc; ctx.lineWidth=28; ctx.stroke(new Path2D('M138 0V150')); ctx.strokeStyle=col; ctx.lineWidth=18; ctx.translate(177,0); ctx.stroke(new Path2D(W_R)); ctx.translate(95,0); ctx.stroke(new Path2D(W_F)); ctx.translate(117,0); ctx.stroke(new Path2D(W_T)); ctx.restore(); };
+// Stacked: mark centred above, tagline set in Instrument Serif beneath.
+var TAG_W = 560;
+var stackedSvg=(col,acc)=>{ var CS=100, W=TAG_W+2*CS, H=CS+150+70+64+CS; return svg(W,H, markSvg((W-MK_W)/2,CS,col,acc)+`<text x="${W/2}" y="${CS+150+70+50}" text-anchor="middle" font-family="Instrument Serif, Georgia, serif" font-size="64" fill="${col}">AI edits. You decide.</text>`); };
